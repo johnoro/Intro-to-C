@@ -16,7 +16,8 @@ int isBuzzy(int n) {
     return n % 5 == 0;
 }
 
-void fizzbuzz(int n) {
+int fizzbuzz(int n) {
+    int count = 0;
     printf("\n");
     do {
         printf("%d: ", n);
@@ -27,9 +28,12 @@ void fizzbuzz(int n) {
                 printf("Fizz");
         } else if (isBuzzy(n))
             printf("Buzz");
+        else
+            count++;
         printf("\n");
     } while (--n > 0);
     printf("\n");
+    return count;
 }
 
 #ifndef TESTING
