@@ -45,7 +45,7 @@ This lab is structured very much like how your introductory JavaScript labs are 
 
   **Stretch Goal Problems**
   - [x] queue
-  - [ ] quicksort
+  - [x] quicksort
   - [ ] hangman
 
 Inside a module directory, type `make tests` (just like with the `npm install`
