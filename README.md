@@ -47,6 +47,9 @@ This lab is structured very much like how your introductory JavaScript labs are 
   - [x] queue
   - [x] quicksort
   - [ ] hangman
+  - [ ] a script for changing line endings; to make a PR with against Lambda's, per:
+
+  > Having a script for changing line endings would be super convenient. It seems like the `runtests.sh` files are the cause of this problem.
 
 Inside a module directory, type `make tests` (just like with the `npm install`
 command needing a `package.json` file, the `make` command requires a
