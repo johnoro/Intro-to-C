@@ -4,7 +4,7 @@
 #include <stdlib.h>
 
 void *resize_memory(void *ptr, int new_size) {
-    return realloc(ptr, new_size);
+  return realloc(ptr, new_size);
 }
 
 #endif
