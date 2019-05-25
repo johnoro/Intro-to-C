@@ -46,7 +46,7 @@ This lab is structured very much like how your introductory JavaScript labs are 
   **Stretch Goal Problems**
   - [x] queue
   - [x] quicksort
-  - [ ] hangman
+  - [x] hangman
   - [ ] a script for changing line endings; to make a PR with against Lambda's, per:
 
   > Having a script for changing line endings would be super convenient. It seems like the `runtests.sh` files are the cause of this problem.
