@@ -17,27 +17,13 @@ char HANG_STATES[HANG_LEN][10 * 9] = {
 };
 
 void print_hangman(int state) {
+	printf("\n");
 	char *print_state = malloc(sizeof(char) * 10);
 	for (int i = 0; i < HANG_LEN; i++) {
 		strncpy(print_state, HANG_STATES[i] + state*10, 10);
 		print_state[10] = '\0';
 		printf("%s\n", print_state);
 	}
-}
-
-void print_word(char *pretty_word, char *correct_guesses) {
-	size_t len = strlen(pretty_word);
-	char *pretty = malloc(len * sizeof(char));
-	for (size_t i = 0; i < len; i++) {
-		char c = pretty_word[i];
-		size_t len = strlen(pretty);
-		if (c == ' ' || strchr(correct_guesses, c))
-			pretty[len] = c;
-		else
-			pretty[len] = '_';
-		pretty[len+1] = '\0';
-	}
-	printf("\n%s\n", pretty);
 }
 
 int main(int argc, char *argv[]) {
@@ -93,6 +79,8 @@ int main(int argc, char *argv[]) {
 				break;
 			}
 		}
+
+		print_guesses(correct_guesses, incorrect_guesses);
 	}
 
   return 0;
