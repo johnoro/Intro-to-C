@@ -22,7 +22,7 @@ size_t append_char(char *str, char c) {
 
 void print_word(char *pretty_word, char *correct_guesses) {
 	size_t len = strlen(pretty_word);
-	char *pretty = malloc(len * sizeof(char));
+	char *pretty = malloc((len+1) * sizeof(char));
 	for (size_t i = 0; i < len; i++) {
 		char c = pretty_word[i];
 		size_t len = strlen(pretty);
@@ -33,6 +33,7 @@ void print_word(char *pretty_word, char *correct_guesses) {
 		pretty[len+1] = '\0';
 	}
 	printf("\n%s\n", pretty);
+  free(pretty);
 }
 
 void print_guesses(char *correct, char *incorrect) {

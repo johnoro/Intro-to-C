@@ -24,6 +24,7 @@ void print_hangman(int state) {
 		print_state[10] = '\0';
 		printf("%s\n", print_state);
 	}
+	free(print_state);
 }
 
 int main(int argc, char *argv[]) {
@@ -46,7 +47,7 @@ int main(int argc, char *argv[]) {
 	lower_string(word);
 
 
-	char *correct_guesses = malloc(sizeof(char) * strlen(word)),
+	char *correct_guesses = malloc(sizeof(char) * (strlen(word)+1)),
 		*incorrect_guesses = malloc(sizeof(char) * 65);
 	char guess;
 	int current_state = 0;
@@ -82,6 +83,11 @@ int main(int argc, char *argv[]) {
 
 		print_guesses(correct_guesses, incorrect_guesses);
 	}
+
+	free(word);
+	free(pretty_word);
+	free(correct_guesses);
+	free(incorrect_guesses);
 
   return 0;
 }
