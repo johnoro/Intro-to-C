@@ -29,8 +29,8 @@ void print_hangman(int state) {
 
 int main(int argc, char *argv[]) {
 	// Initializes word(s) based off of command line argument(s)
-	char *word = malloc(sizeof(char) * 512),
-		*pretty_word = malloc(sizeof(char) * 512);
+	char *word = malloc(sizeof(char) * 256),
+		*pretty_word = malloc(sizeof(char) * 256);
 	strcpy(pretty_word, argv[1]);
 	for (int i = 1; i < argc; i++) {
 		if (i > 1) {
@@ -54,7 +54,7 @@ int main(int argc, char *argv[]) {
 
 	while (1) {
 		print_hangman(current_state);
-		print_word(pretty_word, correct_guesses);
+		print_word(pretty_word, correct_guesses, incorrect_guesses);
 
 		printf("\nGuess: ");
 		scanf(" %c", &guess);
@@ -67,7 +67,7 @@ int main(int argc, char *argv[]) {
 			size_t len = append_char(correct_guesses, guess);
 			printf("\n%c is correct!\n", guess);
 			if (len == strlen(word)) {
-				print_word(pretty_word, correct_guesses);
+				print_word(pretty_word, correct_guesses, incorrect_guesses);
 				printf("\nYou won!\n");
 				break;
 			}
