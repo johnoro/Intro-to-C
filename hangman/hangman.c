@@ -42,8 +42,8 @@ void print_word(char *pretty_word, char *correct_guesses) {
 
 int main(int argc, char *argv[]) {
 	// Initializes word(s) based off of command line argument(s)
-	char *word = malloc(sizeof(char) * 1024),
-		*pretty_word = malloc(sizeof(char) * 1024);
+	char *word = malloc(sizeof(char) * 512),
+		*pretty_word = malloc(sizeof(char) * 512);
 	strcpy(pretty_word, argv[1]);
 	for (int i = 1; i < argc; i++) {
 		if (i > 1) {
@@ -53,18 +53,14 @@ int main(int argc, char *argv[]) {
 
 		for (size_t j = 0; j < strlen(argv[i]); j++) {
 			char c = argv[i][j];
-			if (strchr(word, c) == NULL) {
-				size_t len = strlen(word);
-				word[len] = c;
-				word[len+1] = '\0';
-			}
+			if (strchr(word, c) == NULL)
+				append_char(word, c);
 		}
 	}
 	lower_string(word);
-	// printf("\n%s\n\n", pretty_word);
 
 
-	char *correct_guesses = malloc(sizeof(char) * strlen(word)), 
+	char *correct_guesses = malloc(sizeof(char) * strlen(word)),
 		*incorrect_guesses = malloc(sizeof(char) * 65);
 	char guess;
 	int current_state = 0;
@@ -76,24 +72,20 @@ int main(int argc, char *argv[]) {
 		printf("\nGuess: ");
 		scanf(" %c", &guess);
 		guess = tolower(guess);
-		if (strchr(correct_guesses, guess)) {
+		if (strchr(correct_guesses, guess))
 			printf("\nYou've already guessed %c!\n", guess);
-		} else if (strchr(incorrect_guesses, guess)) {
+		else if (strchr(incorrect_guesses, guess))
 			printf("\nYou've already guessed %c!\n", guess);
-		} else if (strchr(word, guess)) {
-			size_t len = strlen(correct_guesses);
-			correct_guesses[len] = guess;
-			correct_guesses[len+1] = '\0';
+		else if (strchr(word, guess)) {
+			size_t len = append_char(correct_guesses, guess);
 			printf("\n%c is correct!\n", guess);
-			if (len+1 == strlen(word)) {
+			if (len == strlen(word)) {
 				print_word(pretty_word, correct_guesses);
 				printf("\nYou won!\n");
 				break;
 			}
 		} else {
-			size_t len = strlen(incorrect_guesses);
-			incorrect_guesses[len] = guess;
-			incorrect_guesses[len+1] = '\0';
+			append_char(incorrect_guesses, guess);
 			printf("\n%c is wrong!\n", guess);
 			if (current_state++ == HANG_LEN) {
 				print_hangman(current_state);
