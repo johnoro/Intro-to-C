@@ -59,13 +59,12 @@ int main(int argc, char *argv[]) {
 		printf("\nGuess: ");
 		scanf(" %c", &guess);
 		guess = tolower(guess);
-		if (strchr(correct_guesses, guess))
-			printf("\nYou've already guessed %c!\n", guess);
-		else if (strchr(incorrect_guesses, guess))
+		if (strchr(correct_guesses, guess) || strchr(incorrect_guesses, guess))
 			printf("\nYou've already guessed %c!\n", guess);
 		else if (strchr(word, guess)) {
 			size_t len = append_char(correct_guesses, guess);
 			printf("\n%c is correct!\n", guess);
+			
 			if (len == strlen(word)) {
 				print_word(pretty_word, correct_guesses, incorrect_guesses);
 				printf("\nYou won!\n");
@@ -74,6 +73,7 @@ int main(int argc, char *argv[]) {
 		} else {
 			append_char(incorrect_guesses, guess);
 			printf("\n%c is wrong!\n", guess);
+
 			if (current_state++ == HANG_LEN) {
 				print_hangman(current_state);
 				printf("\nYou lost!\n");
