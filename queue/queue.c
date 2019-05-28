@@ -42,7 +42,7 @@ int dequeue(Queue *q) {
     if (q->length == 0)
         return -1;
     int first = *q->storage;
-    for (int i = 1; i < q->length; i++)
+    for (unsigned i = 1; i < q->length; i++)
         q->storage[i-1] = q->storage[i];
     q->length--;
     return first;

@@ -15,9 +15,9 @@ void lower_string(char *s) {
 
 size_t append_char(char *str, char c) {
   size_t len = strlen(str);
-  str[len] = c;
-  str[len+1] = '\0';
-  return len+1;
+  str[len++] = c;
+  str[len] = '\0';
+  return len;
 }
 
 void print_word(char *pretty_word, char *correct, char *incorrect) {
