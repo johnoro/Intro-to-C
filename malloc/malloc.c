@@ -45,11 +45,10 @@ void mem_copy(void *dest, const void *src, int n) {
 void *resize_memory(void *ptr, int old_size, int new_size) {
     void *new_ptr = malloc(new_size);
     int size = new_size;
-    if (old_size < new_size)
+    if (old_size < size)
         size = old_size;
     mem_copy(new_ptr, ptr, size);
-    ptr = new_ptr;
-    return ptr;
+    return new_ptr;
 }
 
 #ifndef TESTING
