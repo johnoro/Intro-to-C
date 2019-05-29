@@ -8,9 +8,8 @@
     Do not just use the `strlen` function from the standard libary.
 */
 int string_length(char *s) {
-    char *p = s;
     int len = 0;
-    while (*p++)
+    while (*s++)
         len++;
     return len;
 }
