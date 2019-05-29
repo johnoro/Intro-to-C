@@ -28,7 +28,6 @@ void mem_copy(void *dest, const void *src, int n) {
     char *to = (char*)dest, *from = (char*)src;
     for (int i = 0; i < n; i++)
         *to++ = *from++;
-    *to = '\0';
 }
 
 /*
