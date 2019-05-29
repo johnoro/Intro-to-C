@@ -45,24 +45,22 @@ char *find_char(char *str, int c) {
     Do not use the `strstr` function from the standard library.
 */
 char *find_string(char *haystack, char *needle) {
-    // make a pointer to start of haystack
-    char *start = haystack;
-    // while start is not null
-    while (*start) {
+    // while haystack is not null
+    while (*haystack) {
         // if first char is equal
-        if (*start == *needle) {
+        if (*haystack == *needle) {
             // make temp ptrs
-            char *s = start, *n = needle;
+            char *s = haystack, *n = needle;
             // check rest against the needle
             while (*++n && *++s) {
                 if (*n != *s)
                     break;
             }
-            // return start if right
+            // return haystack ptr if right
             if (*n == '\0')
-                return start;
+                return haystack;
         }
-        start++;
+        haystack++;
     }
     return NULL;
 }
