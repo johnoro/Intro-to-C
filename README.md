@@ -37,16 +37,19 @@ If you haven't gotten your C compiler up and running, please do that first. You'
 
 This sprint is structured very much like how your introductory JavaScript sprints are structured. There are independent modules, each with their own set of exercises that you'll be tasked with implementing. There's an associated set of tests for all the exercises in each module, which you'll run against your code to check to see if it behaves and functions correctly. The order in which you should tackle these exercises is this:
 
-  - [ ] fizzbuzz
-  - [ ] strings
-  - [ ] pointers
-  - [ ] malloc
-  - [ ] structs
+  - [x] fizzbuzz
+  - [x] strings
+  - [x] pointers
+  - [x] malloc
+  - [x] structs
 
   **Stretch Goal Problems**
-  - [ ] queue
-  - [ ] quicksort
-  - [ ] hangman
+  - [x] queue
+  - [x] quicksort
+  - [x] hangman
+  - [ ] a script for changing line endings; to make a PR with against Lambda's, per:
+
+  > Having a script for changing line endings would be super convenient. It seems like the `runtests.sh` files are the cause of this problem.
 
 Inside a module directory, type `make tests` (just like with the `npm install`
 command needing a `package.json` file, the `make` command requires a

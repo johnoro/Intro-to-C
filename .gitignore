@@ -55,13 +55,3 @@ dkms.conf
 
 *.log
 */tests/*_tests
-
-# Executables
-fizzbuzz/fizzbuzz
-hangman/hangman
-malloc/malloc
-pointers/pointers
-queue/queue
-quicksort/quicksort
-strings/strings
-structs/structs
