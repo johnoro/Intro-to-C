@@ -24,10 +24,12 @@ char *string_dup(char *src) {
     performing the copying. `n` is the amount of data that should be copied
     from `src` to `dest`. 
 */
-void mem_copy(void *dest, const void *src, int n) {
-    char *to = (char*)dest, *from = (char*)src;
-    for (int i = 0; i < n; i++)
+void *mem_copy(void *dest, const void *src, int n) {
+    char *to = dest;
+    const char *from = src;
+    while (n--)
         *to++ = *from++;
+    return dest;
 }
 
 /*
